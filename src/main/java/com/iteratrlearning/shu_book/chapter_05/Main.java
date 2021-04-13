@@ -15,7 +15,7 @@ public class Main {
         final Rule ruleSendEmailToSalesWhenCEO = new RuleBuilder()
                 .name("CEO rule")
                 .description("if CEO then print name")
-                .condition(facts -> "CEO".equals(facts.getFact("jobTitle")))
+                .conditions(facts -> "CEO".equals(facts.getFact("jobTitle")), facts -> facts.getFact("name").startsWith("B"))
                 .action(facts -> {
                     var name = facts.getFact("name");
                     System.out.println("Relevant customer!!!: " + name);
@@ -34,7 +34,7 @@ public class Main {
         final Rule rule2 = new RuleBuilder()
                 .name("rule2")
                 .description("print name, jobTitle")
-                .condition(facts -> true)
+                .conditions(facts -> true)
                 .action(facts -> {
                     var name = facts.getFact("name");
                     var jobTitle = facts.getFact("jobTitle");

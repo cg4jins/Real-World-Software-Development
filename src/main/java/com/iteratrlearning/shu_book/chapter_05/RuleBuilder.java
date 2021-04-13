@@ -2,7 +2,7 @@ package com.iteratrlearning.shu_book.chapter_05;
 
 public class RuleBuilder {
 
-    private Condition condition;
+    private Condition[] conditions;
     private Action action;
     private String name;
     private String description;
@@ -11,8 +11,8 @@ public class RuleBuilder {
 
     }
 
-    public RuleBuilder condition(Condition condition) {
-        this.condition = condition;
+    public RuleBuilder conditions(Condition ... conditions) {
+        this.conditions = conditions;
         return this;
     }
 
@@ -32,6 +32,6 @@ public class RuleBuilder {
     }
 
     public Rule build() {
-        return new Rule(condition, action, name, description);
+        return new Rule(conditions, action, name, description);
     }
 }

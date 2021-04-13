@@ -12,7 +12,7 @@ public class InspectorTest {
     public void inspectOneConditionEvaluatesTrue() {
 
         final Facts facts = new Facts();
-        facts.setFact("jobTitle", "CEO");
+        facts.addFact("jobTitle", "CEO");
         final ConditionalAction conditionalAction = new JobTitleCondition();
         final Inspector inspector = new Inspector(conditionalAction);
 
